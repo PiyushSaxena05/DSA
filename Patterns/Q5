@@ -1,0 +1,51 @@
+package Patterns;
+
+import java.util.Scanner;
+
+public class Q5 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Please enter n: ");
+        int n = input.nextInt();
+        for (int i = 1; i <=n ; i++) {
+            for (int j = 0; j <=n-i; j++) {
+                System.out.print("* ");
+
+            }
+            System.out.println();
+        }
+    }
+}
+
+OUTPUT:
+n = 5
+* * * * *
+* * * *
+* * *
+* *
+*
+
+Approach
+Take an integer n as input from the user.
+Use an outer loop to iterate through rows from 1 to n.
+For each row i, print n - i + 1 stars using an inner loop.
+After printing all stars for the current row, move to the next line.
+Continue until all rows are printed.
+
+Logic
+The outer loop (i) controls the rows.
+The inner loop runs n - i + 1 times (j goes from 0 to n - i).
+The number of stars decreases by one in each row.
+
+Time Complexity
+
+Total iterations:
+
+n + (n-1) + (n-2) + ... + 1 = n(n + 1)/2
+
+Time Complexity: O(n²)
+
+Space Complexity
+
+Space Complexity: O(1)
+
