@@ -1,0 +1,51 @@
+package Patterns;
+
+import java.util.Scanner;
+
+public class Q6 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Please enter n: ");
+        int n = input.nextInt();
+        for (int i = 1; i <=n ; i++) {
+            for (int j = 1; j <=n-i+1; j++) {
+                System.out.print(j);
+
+            }
+            System.out.println();
+        }
+    }
+}
+
+OUTPUT:
+n = 5
+12345
+1234
+123
+12
+1
+
+Approach
+Take an integer n as input from the user.
+Use an outer loop to iterate through rows from 1 to n.
+For each row i, use an inner loop to print numbers from 1 to n - i + 1.
+After printing the numbers for the current row, move to the next line.
+Continue until all rows are printed.
+
+Logic
+The outer loop controls the rows.
+The inner loop prints numbers starting from 1.
+The upper limit of the inner loop decreases by one in every row.
+As a result, each row contains one fewer number than the previous row, forming an inverted number triangle.
+
+Time Complexity
+
+Total iterations:
+
+n + (n-1) + (n-2) + ... + 1 = n(n + 1)/2
+
+Time Complexity: O(n²)
+
+Space Complexity
+
+Space Complexity: O(1)
