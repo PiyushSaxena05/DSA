@@ -1,0 +1,86 @@
+package Patterns;
+
+import java.util.Scanner;
+
+public class Q7 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Please enter n: ");
+        int n = input.nextInt();
+        for (int i = 0; i <n ; i++) {
+
+            for (int j = 1; j <=n-i-1; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 1; j <=2 * i + 1 ; j++) {
+                System.out.print("*");
+            }
+
+            System.out.println();
+        }
+        for (int i = 0; i <n ; i++) {
+            for (int j = 1; j <=i; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 1; j <= 2 * (n-i) - 1 ; j++) {
+                System.out.print("*");
+            }
+
+            System.out.println();
+        }
+    }
+
+OUTPUT:
+Please enter n: 5
+    *
+   ***
+  *****
+ *******
+*********
+*********
+ *******
+  *****
+   ***
+    *
+
+# Diamond Pattern in Java
+
+## Approach
+The pattern is generated in two parts:
+
+1. **Upper Pyramid**
+   - Print `(n - i - 1)` spaces.
+   - Print `(2 * i + 1)` stars.
+
+2. **Lower Inverted Pyramid**
+   - Print `i` spaces.
+   - Print `(2 * (n - i) - 1)` stars.
+
+Combining both sections forms a diamond-like pattern.
+
+## Logic
+For each row:
+- Spaces control alignment.
+- Stars are printed in odd counts to maintain symmetry.
+- The upper half increases the number of stars, while the lower half decreases them.
+
+### Example (n = 4)
+```text
+   *
+  ***
+ *****
+*******
+
+*******
+ *****
+  ***
+   *
+```
+
+## Time Complexity
+- **O(n²)**
+
+## Space Complexity
+- **O(1)**
+    }
+
