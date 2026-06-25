@@ -1,0 +1,59 @@
+package Patterns;
+
+import java.util.Scanner;
+
+public class Q10 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Please enter n: ");
+        int n = input.nextInt();
+
+        for(int i = 1; i<=n; i++){
+            for(int j = 1; j<=i; j++){
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+        for (int i = 1; i <=n ; i++) {
+            for (int j = 1; j <=n-i; j++) {
+                System.out.print("* ");
+
+            }
+            System.out.println();
+        }
+    }
+}
+
+OUTPUT:
+Please enter n: 5
+* 
+* * 
+* * * 
+* * * * 
+* * * * * 
+* * * * 
+* * * 
+* * 
+* 
+
+
+Approach
+The pattern is printed in two parts:
+
+1. Increasing Triangle
+   - For each row i, print i stars.
+   - Number of stars increases from 1 to n.
+
+2. Decreasing Triangle
+   - For each row i, print (n - i) stars.
+   - Number of stars decreases from n - 1 to 0.
+
+ Logic
+- The first loop creates the upper half by increasing the star count row by row.
+- The second loop creates the lower half by decreasing the star count row by row.
+- Together, they form a symmetric star pattern.
+ Time Complexity
+- O(n²)
+
+ Space Complexity
+- O(1)
