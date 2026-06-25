@@ -1,0 +1,50 @@
+package Patterns;
+
+import java.util.Scanner;
+
+public class Q2 {
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+        System.out.print("Please enter n: ");
+        int n = input.nextInt();
+        for (int i = 1; i <=n ; i++) {
+            for (int j = 1; j <=i; j++) {
+                System.out.print(j);
+
+            }
+            System.out.println();
+        }
+    }
+}
+
+OUTPUT:
+n = 5
+1
+12
+123
+1234 
+12345 
+
+Approach
+Take an integer n as input from the user.
+Use an outer loop to iterate through the rows from 1 to n.
+For each row i, use an inner loop to print numbers from 1 to i.
+After printing all numbers for the current row, move to the next line.
+Repeat the process until all rows are printed.
+
+Logic
+The outer loop controls the number of rows.
+The inner loop prints numbers starting from 1 up to the current row number.
+As the row number increases, one additional number is printed in each row, forming a triangular pattern.
+
+Time Complexity
+Outer loop runs n times.
+Inner loop runs 1 + 2 + 3 + ... + n times.
+
+Total operations = n(n + 1) / 2
+
+Time Complexity: O(n²)
+
+Space Complexity
+
+Space Complexity: O(1)
