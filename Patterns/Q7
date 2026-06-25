@@ -1,0 +1,39 @@
+package Patterns;
+
+import java.util.Scanner;
+
+public class Q7 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Please enter n: ");
+        int n = input.nextInt();
+        for (int i = 0; i <n ; i++) {
+
+            for (int j = 1; j <=n-i-1; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 1; j <=2 * i + 1 ; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+    }
+OUTPUT:
+n = 5
+    *
+   ***
+  *****
+ *******
+*********
+
+Logic
+Spaces = n - i - 1
+Stars = 2 * i + 1
+Spaces decrease by 1 each row.
+Stars increase by 2 each row.
+
+
+Complexity
+Time Complexity: O(n²)
+Space Complexity: O(1)
