@@ -1,0 +1,54 @@
+package Patterns;
+
+import java.util.Scanner;
+
+public class Q4 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Please enter n: ");
+        int n = input.nextInt();
+        for (int i = 1; i <=n ; i++) {
+            for (int j = 1; j <=i; j++) {
+                System.out.print(i);
+
+            }
+            System.out.println();
+        }
+    }
+}
+
+OUTPUT:
+n = 5
+1
+22
+333
+4444
+55555
+
+
+ Approach
+
+1. Take an integer `n` as input from the user.
+2. Use an outer loop to iterate through rows from `1` to `n`.
+3. For each row `i`, use an inner loop that runs `i` times.
+4. Print the current row number `i` during each iteration of the inner loop.
+5. Move to the next line after completing each row.
+
+Logic
+
+* The outer loop determines the row number.
+* The inner loop prints the current row number repeatedly.
+* Since the inner loop runs `i` times, row `i` contains `i` occurrences of the number `i`.
+* This creates a triangular pattern of repeated numbers.
+
+Time Complexity
+
+Total iterations:
+
+`1 + 2 + 3 + ... + n = n(n + 1)/2`
+
+Time Complexity:** `O(n²)`
+
+ Space Complexity
+
+space Complexity:** `O(1)`
