@@ -43,44 +43,31 @@ Please enter n: 5
    ***
     *
 
-# Diamond Pattern in Java
-
-## Approach
+ 
+ Approach
 The pattern is generated in two parts:
 
-1. **Upper Pyramid**
+1. Upper Pyramid
    - Print `(n - i - 1)` spaces.
    - Print `(2 * i + 1)` stars.
 
-2. **Lower Inverted Pyramid**
-   - Print `i` spaces.
-   - Print `(2 * (n - i) - 1)` stars.
+2. Lower Inverted Pyramid
+   - Print i spaces.
+   - Print (2 * (n - i) - 1) stars.
 
 Combining both sections forms a diamond-like pattern.
 
-## Logic
+Logic
 For each row:
 - Spaces control alignment.
 - Stars are printed in odd counts to maintain symmetry.
 - The upper half increases the number of stars, while the lower half decreases them.
 
-### Example (n = 4)
-```text
-   *
-  ***
- *****
-*******
 
-*******
- *****
-  ***
-   *
-```
+Time Complexity
+- O(n²)
 
-## Time Complexity
-- **O(n²)**
-
-## Space Complexity
-- **O(1)**
-    }
+Space Complexity
+- O(1)
+    
 
