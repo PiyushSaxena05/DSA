@@ -1,0 +1,52 @@
+package Patterns;
+
+import java.util.Scanner;
+
+public class Q1 {
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Please enter no: ");
+        int n = sc.nextInt();
+
+        for (int i = 1; i <=n ; i++) {
+            for (int j = 1; j <=n; j++) {
+                System.out.print("* ");
+
+            }
+            System.out.println();
+
+        }
+
+    }
+}
+
+OUTPUT:
+n = 3
+* * *
+* * *
+* * *
+
+
+Approach
+Take an integer n as input from the user.
+Use an outer loop to print n rows.
+For each row, use an inner loop to print n stars (*).
+After printing one complete row, move to the next line.
+Repeat the process until all n rows are printed.
+
+
+Logic
+The outer loop controls the number of rows.
+The inner loop controls the number of columns.
+Since both loops run from 1 to n, a total of n × n stars are printed, forming a square pattern.
+
+
+Time Complexity
+Outer loop runs n times.
+Inner loop runs n times for each iteration of the outer loop.
+
+Time Complexity: O(n²)
+
+Space Complexity
+
+Space Complexity: O(1)
