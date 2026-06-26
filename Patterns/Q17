@@ -300,6 +300,11 @@ Only a few extra variables are used (`i`, `j`, `ch`, and `breakpoint`).
 
 ---
 
+Time Complexity: O(N²), because for each of the N rows, up to 2N characters (spaces and letters) may be printed, 
+resulting in O(N²) total operations.
+
+Space Complexity: O(1), as only a constant amount of extra space is used for variables like ch and breakpoint.
+
 # 📚 Key Takeaways
 
 - Uses nested loops to build the pyramid.
