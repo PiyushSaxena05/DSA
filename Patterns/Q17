@@ -1,0 +1,322 @@
+package Patterns;
+
+import java.util.Scanner;
+
+public class Q17 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Please enter no: ");
+        int n = sc.nextInt();
+
+        for (int i = 0; i < n; i++) {
+
+            for(int j =1; j<=n-i-1; j++){
+                System.out.print(" ");
+            }
+            char ch = 'A';
+            int breakpt = (2 * i + 1)/2;
+            for (int j = 1; j <= (2 * i + 1); j++) {
+                System.out.print(ch);
+                if(j<=breakpt){
+
+                    ch++;
+                }else{
+                    ch--;
+                }
+
+            }
+            for(int j =1; j<=n-i-1; j++){
+                System.out.print(" ");
+            }
+
+            System.out.println();
+
+        }
+
+    }
+}
+
+
+LOGIC 
+
+
+# 🔤 Pattern 17 - Alphabet Pyramid
+
+## 📌 Problem Statement
+
+Write a Java program to print the following alphabet pyramid.
+
+### Input
+
+```text
+5
+```
+
+### Output
+
+```text
+    A
+   ABA
+  ABCBA
+ ABCDCBA
+ABCDEDCBA
+```
+
+---
+
+# 💡 Approach
+
+The pattern is divided into three parts for every row:
+
+1. Print the required leading spaces.
+2. Print alphabets in increasing order (`A → B → C ...`).
+3. Print alphabets in decreasing order (`... C → B → A`).
+
+The main challenge is deciding **where to stop increasing the characters and start decreasing them**. This is achieved using a **Breakpoint (Turning Point)**.
+
+---
+
+# 🧠 Algorithm
+
+1. Read the input `n`.
+2. Iterate from `i = 0` to `n - 1` for each row.
+3. Print `n - i - 1` leading spaces.
+4. Initialize the starting character as `'A'`.
+5. Calculate the breakpoint using:
+
+```java
+int breakpoint = (2 * i + 1) / 2;
+```
+
+6. Print `2 * i + 1` characters.
+   - Print the current character.
+   - If the current position is before or at the breakpoint, increment the character.
+   - Otherwise, decrement the character.
+7. Move to the next row.
+
+---
+
+# 🔍 Understanding the Breakpoint
+
+The breakpoint is the **turning point** of the row.
+
+It decides where the alphabet sequence changes direction.
+
+- Before the breakpoint → Characters increase.
+- After the breakpoint → Characters decrease.
+
+### Formula
+
+```java
+int breakpoint = (2 * i + 1) / 2;
+```
+
+### Example (Last Row)
+
+For `i = 4`
+
+Total characters:
+
+```text
+2 × 4 + 1 = 9
+```
+
+Character positions:
+
+```text
+1 2 3 4 5 6 7 8 9
+```
+
+Breakpoint:
+
+```text
+9 / 2 = 4
+```
+
+Execution:
+
+| Position | Character Printed | Action |
+|----------|-------------------|--------|
+|1|A|Increase|
+|2|B|Increase|
+|3|C|Increase|
+|4|D|Increase|
+|5|E|Decrease|
+|6|D|Decrease|
+|7|C|Decrease|
+|8|B|Decrease|
+|9|A|Decrease|
+
+Final Output:
+
+```text
+ABCDEDCBA
+```
+
+---
+
+# 📝 Dry Run
+
+### Example
+
+```text
+n = 4
+```
+
+### Row 1
+
+```text
+Spaces = 3
+Characters = 1
+
+Output:
+   A
+```
+
+### Row 2
+
+```text
+Spaces = 2
+Characters = 3
+
+Output:
+  ABA
+```
+
+### Row 3
+
+```text
+Spaces = 1
+Characters = 5
+
+Output:
+ ABCBA
+```
+
+### Row 4
+
+```text
+Spaces = 0
+Characters = 7
+
+Output:
+ABCDCBA
+```
+
+---
+
+# 🔄 Character Flow
+
+For `i = 3`
+
+```text
+Characters = 7
+Breakpoint = 3
+Initial Character = A
+```
+
+| j | Character Printed | Next Character |
+|---|-------------------|----------------|
+|1|A|B|
+|2|B|C|
+|3|C|D|
+|4|D|C|
+|5|C|B|
+|6|B|A|
+|7|A|Loop Ends|
+
+Final Row:
+
+```text
+ABCDCBA
+```
+
+---
+
+# 💻 Java Code
+
+```java
+import java.util.Scanner;
+
+public class Q17 {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Please enter no: ");
+        int n = sc.nextInt();
+
+        for (int i = 0; i < n; i++) {
+
+            // Print leading spaces
+            for (int j = 1; j <= n - i - 1; j++) {
+                System.out.print(" ");
+            }
+
+            char ch = 'A';
+
+            // Turning point
+            int breakpoint = (2 * i + 1) / 2;
+
+            // Print characters
+            for (int j = 1; j <= (2 * i + 1); j++) {
+
+                System.out.print(ch);
+
+                if (j <= breakpoint) {
+                    ch++;
+                } else {
+                    ch--;
+                }
+            }
+
+            System.out.println();
+        }
+
+        sc.close();
+    }
+}
+```
+
+---
+
+# ⏱️ Time Complexity
+
+```text
+O(N²)
+```
+
+**Reason:** The outer loop runs `N` times, and for each row the inner loops print spaces and characters proportional to `N`.
+
+---
+
+# 💾 Space Complexity
+
+```text
+O(1)
+```
+
+Only a few extra variables are used (`i`, `j`, `ch`, and `breakpoint`).
+
+---
+
+# 📚 Key Takeaways
+
+- Uses nested loops to build the pyramid.
+- Uses characters instead of numbers.
+- Number of characters in each row follows the formula **2 × i + 1**.
+- Number of leading spaces follows the formula **n - i - 1**.
+- The **Breakpoint** acts as the turning point where the alphabet sequence changes from increasing to decreasing.
+- The pattern is horizontally symmetric (palindromic).
+
+---
+
+## ⭐ Core Idea
+
+The **Breakpoint** is the heart of this pattern.
+
+- **Before the breakpoint:** Characters increase (`A → B → C → ...`)
+- **At the center:** The highest alphabet is printed.
+- **After the breakpoint:** Characters decrease (`... → C → B → A`)
+
+This creates the beautiful symmetric alphabet pyramid.
