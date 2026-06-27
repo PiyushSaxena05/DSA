@@ -1,0 +1,103 @@
+package Patterns;
+
+import java.util.Scanner;
+
+public class Q20 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Please enter no: ");
+        int n = sc.nextInt();
+
+        for (int i = 1; i <=n; i++) {
+            for (int j = 1; j <=i; j++) {
+                System.out.print("*");
+            }
+            for(int x = 0; x<2 *(n-i); x++){
+                System.out.print(" ");
+            }
+            for (int j = 1; j <=i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+
+        }
+        for (int i = 1; i <n; i++) {
+            for (int j = 1; j <=n-i ; j++) {
+                System.out.print("*");
+            }
+            for (int x = 0; x < 2*i; x++) {
+                System.out.print(" ");
+            }
+            for (int j = 1; j <= n-i ; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+
+        }
+
+
+Approach
+
+This pattern is known as the Butterfly Pattern. The pattern consists of two symmetric halves:
+
+Upper Half
+
+For each row i from 1 to n:
+
+Print i stars on the left side.
+Print 2 × (n - i) spaces in the middle.
+Print i stars on the right side.
+
+Example for n = 5:
+
+*        *
+**      **
+***    ***
+****  ****
+**********
+Lower Half
+
+For each row i from 1 to n - 1:
+
+Print (n - i) stars on the left side.
+Print 2 × i spaces in the middle.
+Print (n - i) stars on the right side.
+
+Example:
+
+****  ****
+***    ***
+**      **
+*        *
+Key Observation
+Left and right star counts are always equal.
+In the upper half:
+Stars increase by 1 each row.
+Spaces decrease by 2 each row.
+In the lower half:
+Stars decrease by 1 each row.
+Spaces increase by 2 each row.
+Time Complexity
+
+There are 2n - 1 rows.
+
+For each row, approximately 2n characters (stars + spaces) are printed.
+
+Time Complexity: O(n²)
+Space Complexity
+
+Only a few loop variables are used, and no extra data structure is created.
+
+Space Complexity: O(1)
+Pattern Output (n = 5)
+*        *
+**      **
+***    ***
+****  ****
+**********
+****  ****
+***    ***
+**      **
+*        *
+    }
+}
