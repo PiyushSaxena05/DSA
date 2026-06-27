@@ -1,0 +1,177 @@
+package Patterns;
+
+import java.util.Scanner;
+
+public class Q18 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Please enter no: ");
+        int n = sc.nextInt();
+
+        for (int i = 0; i <n ; i++) {
+            char s= (char)('A'+n-i-1);
+            char e = (char)('A'+n-1);
+            for (char j = s; j <=e ; j++) {
+                System.out.print(j+" ");
+
+            }
+            System.out.println();
+
+
+        }
+    }
+}
+
+
+Approach
+
+The pattern consists of characters in increasing order, but the starting character changes for every row.
+
+Observe the pattern:
+
+Row 0 → D
+Row 1 → C D
+Row 2 → B C D
+Row 3 → A B C D
+
+Notice:
+
+The last character (D) remains fixed in every row.
+The starting character moves one step backward in each row.
+D
+↓
+C
+↓
+B
+↓
+A
+Key Observation
+
+For N = 4:
+
+A → 0
+B → 1
+C → 2
+D → 3
+
+The last character is:
+
+'A' + (N - 1)
+
+For N = 4:
+
+'A' + 3 = 'D'
+
+So every row will end at:
+
+char end = (char)('A' + N - 1);
+Finding the Starting Character
+
+The starting character moves backward in every row.
+
+Row 0 → D
+Row 1 → C
+Row 2 → B
+Row 3 → A
+
+Since the last character is fixed, we move back by i positions.
+
+start = end - i
+
+Equivalent formula:
+
+char start = (char)('A' + N - i - 1);
+Dry Run (N = 4)
+Row (i)	Start Character
+0	D
+1	C
+2	B
+3	A
+Inner Loop Logic
+
+Print all characters from the starting character up to the ending character.
+
+for(char ch = start; ch <= end; ch++)
+Example
+Row 0
+start = D
+end = D
+
+Loop:
+
+for(char ch = 'D'; ch <= 'D'; ch++)
+
+Output:
+
+D
+Row 1
+start = C
+end = D
+
+Loop:
+
+for(char ch = 'C'; ch <= 'D'; ch++)
+
+Output:
+
+C D
+Row 2
+start = B
+end = D
+
+Output:
+
+B C D
+Row 3
+start = A
+end = D
+
+Output:
+
+A B C D
+Algorithm
+Run an outer loop from 0 to N-1.
+
+Compute the starting character:
+
+start = 'A' + N - i - 1
+
+Compute the ending character:
+
+end = 'A' + N - 1
+Print all characters from start to end.
+Move to the next line.
+
+
+Time Complexity
+
+The number of printed characters is:
+
+1 + 2 + 3 + ... + N
+
+Using the sum of first N natural numbers:
+
+N(N + 1) / 2
+
+Therefore:
+
+Time Complexity: O(N²)
+Space Complexity
+
+No extra data structure is used.
+
+Space Complexity: O(1)
+Pattern Solving Trick
+
+Whenever you see a pattern like:
+
+D
+C D
+B C D
+A B C D
+
+Think:
+
+Find the fixed ending character.
+Move the starting character backward in each row.
+Print characters from start to end in increasing order.
