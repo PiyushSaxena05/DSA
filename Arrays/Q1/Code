@@ -1,0 +1,45 @@
+package Arrays;
+
+import java.util.Arrays;
+
+public class Q1 {
+
+    public static void main(String[] args) {
+        int[] arr = {2,5,1,3,0};
+        int[] arr2={8, 5, 7, 9,10};
+        int ans = largest(arr);
+        int ans2 = largest(arr2);
+        System.out.println("Largest element for arr1 is: "+ans);
+        System.out.println("Largest element for arr2 is: "+ans2);
+
+        //USE OF SORTING
+        int ans3 = sort(arr);
+        System.out.println(ans3);
+        int ans4 = sort(arr2);
+        System.out.println(ans4);
+
+    }
+
+    static int largest(int[] arr){
+        int max = arr[0];
+        for (int i = 0; i <arr.length ; i++) {
+            int x = arr[i];
+            max = Math.max(max,x);
+        }
+        return max;
+    }
+
+    //SORTING
+    static int sort(int[] arr){
+        Arrays.sort(arr);
+        return arr[arr.length-1];
+    }
+}
+
+
+
+OUTPUT:
+Largest element for arr1 is: 5
+Largest element for arr2 is: 10
+5
+10
