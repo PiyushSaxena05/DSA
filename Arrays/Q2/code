@@ -1,0 +1,48 @@
+package Arrays;
+
+import java.util.Arrays;
+
+public class Q2 {
+   static void find(int[] arr){
+       if(arr.length<2){
+           System.out.println(-1+" "+ -1);
+           return;
+       }
+       int s = Integer.MAX_VALUE;
+       int second_s = Integer.MAX_VALUE;
+       int l = Integer.MIN_VALUE;
+       int second_l = Integer.MIN_VALUE;
+
+       for (int i = 0; i < arr.length ; i++) {
+
+           s = Math.min(s,arr[i]);
+           l = Math.max(l,arr[i]);
+       }
+       for (int i = 0; i < arr.length; i++) {
+           if(arr[i]<second_s && arr[i] != s){
+               second_s = arr[i];
+           }
+           if(arr[i]>second_l && arr[i] != l){
+               second_l = arr[i];
+           }
+       }
+       if (second_s == Integer.MAX_VALUE) {
+           second_s = -1;
+       }
+
+       if (second_l == Integer.MIN_VALUE) {
+           second_l = -1;
+       }
+       System.out.println("Second smallest is: "+ second_s);
+       System.out.println("Second Largest is: "+ second_l);
+       }
+
+    public static void main(String[] args) {
+       int[] arr = {1, 2, 4, 6, 7, 5};
+       int[] arr2 = {1, 2, 4, 7, 7, 5};
+       find(arr);
+       find(arr2);
+
+    }
+
+}
