@@ -1,0 +1,27 @@
+package Arrays;
+
+import java.security.spec.RSAOtherPrimeInfo;
+import java.util.Arrays;
+import java.util.Collections;
+
+public class Q3 {
+
+    static void sorted(int [] arr) {
+        boolean asc = true;
+        for (int i = 0; i <arr.length-1; i++) {
+            if(arr[i]>arr[i+1]){
+                asc = false;
+            }
+        }
+        System.out.println(asc);
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1,2,3,4,5};
+        sorted(arr);
+
+    }
+}
+
+OUTPUT:
+true
