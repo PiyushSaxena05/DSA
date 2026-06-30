@@ -1,0 +1,88 @@
+# Check if Array is Sorted and Rotated
+
+## Approach / Logic
+
+The idea is to check how many times the order breaks in the array.
+
+A "break" or "drop" happens when:
+
+nums[i] > nums[(i + 1) % n]
+
+We treat the array as circular using modulo so that the last element is compared with the first element.
+
+If the array was originally sorted and then rotated, there can be **at most one such break point**.
+
+- 0 breaks → already sorted
+- 1 break → sorted + rotated
+- more than 1 break → not valid
+
+We simply traverse the array once and count these breaks.
+
+---
+
+## Trick
+
+👉 Instead of trying to find the rotation point or rebuilding the array, just count "drops".
+
+👉 A valid rotated sorted array always has only **one peak → drop transition**.
+
+👉 Use circular check:
+(i + 1) % n ensures last element connects back to first.
+
+---
+
+## Complexity
+
+Time Complexity: O(n)  
+We traverse the array only once.
+
+Space Complexity: O(1)  
+No extra space is used.
+
+---
+
+## Example
+
+### Example 1
+Input:
+[3, 4, 5, 1, 2]
+
+Breaks:
+5 > 1 → 1 break
+
+Result:
+true (valid rotated sorted array)
+
+---
+
+### Example 2
+Input:
+[2, 1, 3, 4]
+
+Breaks:
+2 > 1 → break 1  
+4 > 2 → break 2  
+
+Result:
+false (more than one break)
+
+---
+
+### Example 3
+Input:
+[1, 2, 3]
+
+Breaks:
+No breaks
+
+Result:
+true (already sorted)
+
+---
+
+## Final Insight
+
+You don’t need to rotate or simulate anything.
+
+Just detect how many times the array stops being sorted.
+If that happens more than once, it can never be a rotated sorted array.
