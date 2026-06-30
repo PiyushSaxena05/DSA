@@ -1,0 +1,274 @@
+# Remove Duplicates from Sorted Array
+
+## Problem Statement
+
+Given a sorted integer array `arr`, remove the duplicates in-place such that each unique element appears only once. Return the number of unique elements.
+
+The relative order of the elements must remain the same, and no extra array should be used.
+
+---
+
+# Approach 1: Using HashSet
+
+### Idea
+
+Store all unique elements in a `HashSet`. If an element is encountered for the first time, add it to the set and place it in the array at the next available position.
+
+### Code Logic
+
+```java
+HashSet<Integer> unique = new HashSet<>();
+
+int i = 0;
+
+for (int number : arr) {
+    if (!unique.contains(number)) {
+        unique.add(number);
+        arr[i] = number;
+        i++;
+    }
+}
+return i;
+```
+
+### Dry Run
+
+Input:
+
+```text
+[1,1,2,2,3]
+```
+
+Process:
+
+```text
+1 -> Add
+1 -> Skip
+2 -> Add
+2 -> Skip
+3 -> Add
+```
+
+Array becomes:
+
+```text
+[1,2,3,2,3]
+```
+
+Return:
+
+```text
+3
+```
+
+### Time Complexity
+
+```text
+O(n)
+```
+
+### Space Complexity
+
+```text
+O(n)
+```
+
+### Drawback
+
+Uses extra memory because of HashSet.
+
+---
+
+# Approach 2: Two Pointer (n Pointer)
+
+### Idea
+
+Since the array is sorted, duplicates are adjacent.
+
+Maintain:
+
+* `i` for traversal
+* `n` for the position of the next unique element
+
+Whenever a new element is found, place it at index `n` and increment `n`.
+
+### Code Logic
+
+```java
+if (arr.length == 0) {
+    return 0;
+}
+
+int n = 1;
+
+for (int i = 1; i < arr.length; i++) {
+
+    if (arr[i] != arr[n - 1]) {
+
+        arr[n] = arr[i];
+        n++;
+    }
+}
+
+return n;
+```
+
+### Dry Run
+
+Input:
+
+```text
+[1,1,2,2,3]
+```
+
+Process:
+
+```text
+1 -> Unique
+1 -> Duplicate
+2 -> Unique
+2 -> Duplicate
+3 -> Unique
+```
+
+Array becomes:
+
+```text
+[1,2,3,2,3]
+```
+
+Return:
+
+```text
+3
+```
+
+### Time Complexity
+
+```text
+O(n)
+```
+
+### Space Complexity
+
+```text
+O(1)
+```
+
+---
+
+# Approach 3: Optimized Two Pointer (Most Common Solution)
+
+### Idea
+
+Keep one pointer `i` at the last unique element.
+
+Use another pointer `j` to scan the array.
+
+Whenever a new unique value is found:
+
+1. Move `i` forward.
+2. Copy the unique value to position `i`.
+
+### Code Logic
+
+```java
+if (arr.length == 0)
+    return 0;
+
+int i = 0;
+
+for (int j = 1; j < arr.length; j++) {
+
+    if (arr[j] != arr[i]) {
+
+        i++;
+        arr[i] = arr[j];
+    }
+}
+
+return i + 1;
+```
+
+### Dry Run
+
+Input:
+
+```text
+[1,1,2,2,3]
+```
+
+Initial:
+
+```text
+i = 0
+```
+
+| j | arr[j] | arr[i] | Action       |
+| - | ------ | ------ | ------------ |
+| 1 | 1      | 1      | Skip         |
+| 2 | 2      | 1      | i++, place 2 |
+| 3 | 2      | 2      | Skip         |
+| 4 | 3      | 2      | i++, place 3 |
+
+Final Array:
+
+```text
+[1,2,3,2,3]
+```
+
+Unique Count:
+
+```text
+3
+```
+
+First 3 elements:
+
+```text
+[1,2,3]
+```
+
+---
+
+# Logic Trick
+
+The array is already sorted.
+
+This means:
+
+```text
+All duplicates appear together.
+```
+
+Therefore, we only need to compare the current element with the last unique element.
+
+```java
+if (arr[j] != arr[i])
+```
+
+If they are different, we have found a new unique value.
+
+---
+
+# Complexity Comparison
+
+| Approach              | Time | Space |
+| --------------------- | ---- | ----- |
+| HashSet               | O(n) | O(n)  |
+| Two Pointer (n)       | O(n) | O(1)  |
+| Optimized Two Pointer | O(n) | O(1)  |
+
+---
+
+# Recommended Approach
+
+✅ Optimized Two Pointer Approach
+
+Reason:
+
+* Uses constant extra space.
+* Modifies array in-place.
+* Takes only one traversal.
+* Accepted and expected by LeetCode interviews.
+* Most efficient solution for a sorted array.
