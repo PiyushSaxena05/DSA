@@ -1,0 +1,138 @@
+# LeetCode 283 - Move Zeroes
+
+## Approach 1: Nested Loops + Swap (Brute Force)
+
+### Intuition
+
+The idea is simple:
+
+* Traverse the array from left to right.
+* Whenever a `0` is found at index `i`, search for the next non-zero element on its right.
+* As soon as a non-zero element is found, swap it with the zero.
+* Repeat the process until all zeros are pushed toward the end.
+
+This approach maintains the relative order of non-zero elements because each zero is replaced by the first non-zero element appearing after it.
+
+---
+
+### Algorithm
+
+1. Iterate through the array using index `i`.
+2. If `nums[i]` is `0`:
+
+   * Search the remaining part of the array using index `j`.
+   * Find the first non-zero element.
+   * Swap `nums[i]` and `nums[j]`.
+   * Break the inner loop.
+3. Continue until the entire array is processed.
+
+---
+
+### Code
+
+```java
+public void moveZeroes(int[] nums) {
+    for (int i = 0; i < nums.length; i++) {
+        for (int j = i + 1; j < nums.length; j++) {
+            if (nums[i] == 0 && nums[j] != 0) {
+                int temp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = temp;
+                break;
+            }
+        }
+    }
+}
+```
+
+---
+
+### Dry Run
+
+Input:
+
+```java
+[0,1,0,3,12]
+```
+
+#### Step 1
+
+```
+i = 0
+nums[0] = 0
+
+Find next non-zero:
+j = 1 → nums[1] = 1
+
+Swap(0,1)
+
+[1,0,0,3,12]
+```
+
+#### Step 2
+
+```
+i = 1
+nums[1] = 0
+
+Find next non-zero:
+j = 3 → nums[3] = 3
+
+Swap(1,3)
+
+[1,3,0,0,12]
+```
+
+#### Step 3
+
+```
+i = 2
+nums[2] = 0
+
+Find next non-zero:
+j = 4 → nums[4] = 12
+
+Swap(2,4)
+
+[1,3,12,0,0]
+```
+
+Output:
+
+```java
+[1,3,12,0,0]
+```
+
+---
+
+### Complexity Analysis
+
+#### Time Complexity
+
+Worst case:
+
+```java
+[0,0,0,0,1]
+```
+
+For every zero, we may scan a large part of the array.
+
+```
+O(n²)
+```
+
+#### Space Complexity
+
+No extra data structure is used.
+
+```
+O(1)
+```
+
+---
+
+### Key Observation
+
+This approach is easy to understand and implement, but it repeatedly searches for non-zero elements, causing unnecessary work.
+
+It is accepted by LeetCode but is not the most efficient solution.
