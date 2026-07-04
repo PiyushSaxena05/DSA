@@ -1,0 +1,21 @@
+package Arrays.NEETCODE;
+
+import java.util.Arrays;
+//LEETCODE 1929
+public class Concatenation {
+    public static int[] concatenation(int[] nums){
+        int n = 2 * nums.length;
+        int[] ans = new int[n];
+        for (int i = 0; i <nums.length ; i++) {
+            ans[i] = nums[i];
+            ans[i+nums.length]=nums[i];
+        }
+        return ans;
+    }
+    public static void main(String[] args) {
+        int[] arr = {1,4,1,2};
+        int[] ans = concatenation(arr);
+        System.out.println(Arrays.toString(ans));
+
+    }
+}
