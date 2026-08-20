@@ -43,3 +43,15 @@ for i = n-1 to 0:
     prod = prod * nums[i]
 
 return answer
+
+    Dry Run — nums = [1,2,3,4]
+
+Pass 1 (prefix):
+
+i	answer[i]	prod after
+0	1	           1
+1	1	           2
+2	2	           6
+3	6	           24
+
+    
