@@ -33,4 +33,8 @@ prod = 1
 for i = 0 to n-1:
     answer[i] = prod        
     prod = prod * nums[i]   
+prod = 1
+for i = n-1 to 0:
+    answer[i] = answer[i] * prod   
+    prod = prod * nums[i]
 
