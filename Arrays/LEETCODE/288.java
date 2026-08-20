@@ -23,3 +23,14 @@ class Solution {
         return ans;
     }
 }
+
+
+
+Pseudocode
+answer[] = new array of size n
+
+prod = 1
+for i = 0 to n-1:
+    answer[i] = prod        
+    prod = prod * nums[i]   
+
