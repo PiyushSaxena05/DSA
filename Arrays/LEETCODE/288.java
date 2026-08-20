@@ -54,4 +54,15 @@ i	answer[i]	prod after
 2	2	           6
 3	6	           24
 
+    → answer = [1,1,2,6]
+
+Pass 2 (suffix), prod resets to 1:
+
+i	answer[i] *= prod	prod after
+3	6×1=6	               4
+2	2×4=8	              12
+1	1×12=12	              24
+0	1×24=24	              24
+
+→ Final answer = [24, 12, 8, 6]
     
