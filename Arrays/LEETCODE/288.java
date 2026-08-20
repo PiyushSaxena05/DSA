@@ -65,4 +65,9 @@ i	answer[i] *= prod	prod after
 0	1×24=24	              24
 
 → Final answer = [24, 12, 8, 6]
+
+
+    Complexity
+Time: O(n)
+Space: O(1)
     
