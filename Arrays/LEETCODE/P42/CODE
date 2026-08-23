@@ -1,0 +1,16 @@
+class Solution {
+    public int trap(int[] height) {
+        int l = 0;
+        int r = height.length-1;
+
+        int l_max = 0, r_max =0, total_water =0;
+
+        while(l<r){
+            if(height[l]<=height[r]){
+                if(height[l]>=l_max){
+                    l_max = height[l];
+                }else{
+                    total_water += l_max - height[l];
+                }
+                l++;
+          
