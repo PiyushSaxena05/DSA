@@ -52,5 +52,26 @@ public class J {
     public int Front() {
 
         if (front == -1) {
+            return -1;
+        }
+
+        return queue[front];
+    }
+
+    public int Rear() {
+
+        if (rear == -1) {
+            return -1;
+        }
+
+        return queue[rear];
+    }
+
+    public boolean isEmpty() {
+        return front == -1;
+    }
+
+    public boolean isFull() {
+        return (rear + 1) % size == front;
     }
 }
