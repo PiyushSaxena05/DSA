@@ -6,15 +6,7 @@ public class I {
         Stack<Integer>stack = new Stack<>();
         int poppedindex = 0;
         int width;
-
-        int Maxarea = 0;
-        int area =0;
-        for (int i = 0; i <=nums.length ; i++) {
-
-            int currentheight = (i==nums.length)?0:nums[i];
-
-
-            while(!stack.isEmpty() &&currentheight<=nums[stack.peek()]){
+ight<=nums[stack.peek()]){
                 poppedindex= stack.pop();
                 if(stack.isEmpty()){
                     width =i;
