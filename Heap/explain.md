@@ -4,6 +4,23 @@ Java provides `PriorityQueue` to implement a Heap.
 
 ## Min Heap
 
+Smallest element stays at the top.
+
+```java
+PriorityQueue<Integer> pq = new PriorityQueue<>();
+```
+
+```text
+peek() → smallest
+poll() → smallest + removes it
+```
+
+## Max Heap
+
+Largest element stays at the top.
+
+```java
+PriorityQueue<Integer> pq =
         new PriorityQueue<>(Collections.reverseOrder());
 ```
 
