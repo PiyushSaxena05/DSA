@@ -3,20 +3,7 @@ package Arrays;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.TreeSet;
-
-public class Q6 {
-    public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5};
-        int[] arr2 = {2, 3, 4, 4, 5};
-       // union(arr, arr2, 5, 5);
-        List<Integer>union = findunion(arr,arr2,5,5);
-        for(int num: union){
-            System.out.print(num);
-        }
-    }
-
-    static List<Integer> findunion(int[] arr1, int[] arr2, int n, int m) {
+import java.util.(int[] arr1, int[] arr2, int n, int m) {
         List<Integer> Union = new ArrayList<>();
         int i = 0, j =0;
         while(i<n && j<m){
