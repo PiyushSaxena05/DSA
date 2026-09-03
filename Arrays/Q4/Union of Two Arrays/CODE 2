@@ -1,25 +1,6 @@
 package Arrays;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.(int[] arr1, int[] arr2, int n, int m) {
-        List<Intege
-                if (Union.isEmpty() || Union.get(Union.size() - 1) != arr1[i])
-                    Union.add(arr1[i]);
-                i++; j++;
-            }
-        }
-        while (i < n) {
-            if (Union.isEmpty() || Union.get(Union.size() - 1) != arr1[i])
-                Union.add(arr1[i]);
-            i++;
-        }
-        while (j < m) {
-            if (Union.isEmpty() || Union.get(Union.size() - 1) != arr2[j])
-                Union.add(arr2[j]);
-            j++;
-        }
+import java.
         return Union;
     }
 
