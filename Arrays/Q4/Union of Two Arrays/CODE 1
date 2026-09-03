@@ -1,21 +1,4 @@
-package Arrays;
-
-import java.lan2,int n, int m ){
-
-        TreeSet<Integer>un = new TreeSet<>();
-       for(int num: arr1){
-           un.add(num);
-       }
-       for(int num : arr2){
-           un.add(num);
-       }
-
-        System.out.println(un);
-
-
-
-    }
-
+package A
     }
 
 
