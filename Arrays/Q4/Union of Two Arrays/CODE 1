@@ -5,16 +5,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.TreeSet;
 
-public
-    }
-
-    static void union(int[] arr1, int[] arr2,int n, int m ){
-
-        HashSet<Integer>un = new HashSet<>();
-        for(int i = 0; i<n; i++){
-            un.add(arr1[i]);
-        }
-        for(int i = 0; i<m; i++){
+publicm; i++){
             un.add(arr2[i]);
         }
         System.out.println(un);
