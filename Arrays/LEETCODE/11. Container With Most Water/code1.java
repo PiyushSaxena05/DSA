@@ -6,7 +6,7 @@ while (left < right) {
 
     int width = right - left;
 
-    int hheight = Math.(height[left], height[right]);
+    int hheight = Math.min(height[left], height[right]);
 
     maxArea = Math.max(maxArea, width * hheight);
 
