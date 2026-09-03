@@ -1,0 +1,85 @@
+package Arrays;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.TreeSet;
+
+public class Q6 {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        int[] arr2 = {2, 3, 4, 4, 5};
+       // union(arr, arr2, 5, 5);
+        List<Integer>union = findunion(arr,arr2,5,5);
+        for(int num: union){
+            System.out.print(num);
+        }
+    }
+
+    static List<Integer> findunion(int[] arr1, int[] arr2, int n, int m) {
+        List<Integer> Union = new ArrayList<>();
+        int i = 0, j =0;
+        while(i<n && j<m){
+            if(arr1[i]<arr2[j]){
+                if (Union.isEmpty() || Union.get(Union.size() - 1) != arr1[i])
+                    Union.add(arr1[i]);
+                i++;
+            } else if (arr2[j]<arr1[i]) {
+                if (Union.isEmpty() || Union.get(Union.size() - 1) != arr2[j])
+                    Union.add(arr2[j]);
+                j++;
+            }else{
+                if (Union.isEmpty() || Union.get(Union.size() - 1) != arr1[i])
+                    Union.add(arr1[i]);
+                i++; j++;
+            }
+        }
+        while (i < n) {
+            if (Union.isEmpty() || Union.get(Union.size() - 1) != arr1[i])
+                Union.add(arr1[i]);
+            i++;
+        }
+        while (j < m) {
+            if (Union.isEmpty() || Union.get(Union.size() - 1) != arr2[j])
+                Union.add(arr2[j]);
+            j++;
+        }
+        return Union;
+    }
+
+//    static void union(int[] arr1, int[] arr2,int n, int m ){
+//
+//        HashSet<Integer>un = new HashSet<>();
+//        for(int i = 0; i<n; i++){
+//            un.add(arr1[i]);
+//        }
+//        for(int i = 0; i<m; i++){
+//            un.add(arr2[i]);
+//        }
+//        System.out.println(un);
+//
+//
+//
+//        }
+//
+//    static void union2(int[] arr1, int[] arr2,int n, int m ){
+//
+//        TreeSet<Integer>un = new TreeSet<>();
+//       for(int num: arr1){
+//           un.add(num);
+//       }
+//       for(int num : arr2){
+//           un.add(num);
+//       }
+//
+//        System.out.println(un);
+//
+//    }
+//
+
+
+    }
+
+OUTPUT:12345
+
+
