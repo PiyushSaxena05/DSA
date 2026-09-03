@@ -1,20 +1,6 @@
 package Arrays;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.TreeSet;
-
-publicm; i++){
-            un.add(arr2[i]);
-        }
-        System.out.println(un);
-
-
-
-        }
-
-    static void union2(int[] arr1, int[] arr2,int n, int m ){
+import java.lan2,int n, int m ){
 
         TreeSet<Integer>un = new TreeSet<>();
        for(int num: arr1){
