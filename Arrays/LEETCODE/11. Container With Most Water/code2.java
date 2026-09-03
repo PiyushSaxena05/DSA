@@ -6,13 +6,7 @@ int srt = 0;
 
            
             int minH = Math.min(height[srt], height[end]);
-
-            
-            int area = minH * (end - srt);
-
-            maxWater = Math.max(maxWater, area);
-
-            while (srt < end && height[srt] <= minH) {
+height[srt] <= minH) {
                 srt++;
             }
 
