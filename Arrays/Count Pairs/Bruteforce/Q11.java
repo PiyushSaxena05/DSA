@@ -21,9 +21,8 @@ public class Q11 {
     public static void main(String[] args) {
         int[] arr = {1,5,7,-1,5};
         int ans = countPairs(arr,6);
-        int ans2 = countPairs2(arr,6);
         System.out.println(ans);
-        System.out.println(ans2);
+       
 
     }
 }
